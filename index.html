@@ -589,12 +589,31 @@
 
     h1.wizard-name {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      white-space: nowrap;
+      font-size: clamp(2rem, 5vw, 4.5rem);
       color: var(--gold);
       letter-spacing: 5px;
       text-shadow: 0 0 40px rgba(236, 185, 57, 0.35), 0 0 80px rgba(116, 0, 1, 0.2);
       margin-bottom: 12px;
       animation: goldPulse 3.5s ease-in-out infinite;
+
+    }
+
+    .wizard-name span {
+      display: inline-block;
+      position: relative;
+    }
+
+    .wizard-name span::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      background: #ECB939;
+      left: 50%;
+      top: 0;
+      transform: rotate(20deg);
+      opacity: 0.6;
     }
 
     @keyframes goldPulse {
@@ -927,8 +946,8 @@
     }
 
     .magic-card {
-      width: 260px;
-      height: 158px;
+      width: 300px;
+      height: 190px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -971,22 +990,18 @@
       opacity: 0.85;
     }
 
-    .card-front h3 {
-      font-family: 'Cinzel', serif;
-      font-size: .95rem;
-      color: #e8dcc8;
-      letter-spacing: 1px;
-    }
+.card-front h3 {
+  font-size: 1.1rem;   /* was ~0.95 */
+  letter-spacing: 1.5px;
+}
 
-    .card-back p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      color: #ccc;
-    }
+.card-back p {
+  font-size: 1.15rem;  /* was ~1.05 */
+}
 
     .card-score {
       font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
+      font-size: 1.7rem;
       color: var(--gold);
       font-weight: 700;
     }
@@ -2465,7 +2480,7 @@
     const phrases = [
       'Aspiring Full Stack Developer',
       'MERN Stack Enthusiast',
-      'AI & DSA Explorer',
+      'DSA Explorer',
       'Problem Solver'
     ];
     let pi = 0, ci = 0, deleting = false;
